@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class StarCollectedScript : MonoBehaviour
 {
+    public RectTransform myRect;
+    public RectTransform myRectChild;
 
     [Header("Serialize field")]
     public RectTransform targetPos;
     public bool isGoToTarget;
-
-    RectTransform myRect;
 
     private void Start()
     {
@@ -19,7 +19,8 @@ public class StarCollectedScript : MonoBehaviour
     void Update()
     {
         if (isGoToTarget) {
-            myRect.position = Vector3.MoveTowards(myRect.position, targetPos.position , 0.2f);
+            myRect.position = Vector3.Lerp(myRect.position, targetPos.position , 0.1f);
+            myRectChild.sizeDelta = Vector2.Lerp(myRectChild.sizeDelta , new Vector2(100,100), 0.1f);
         }
     }
 }

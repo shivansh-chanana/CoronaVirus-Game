@@ -266,7 +266,6 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < starsToMake; i++)
         {
             starChilds.Add(Instantiate(starPrefab, startHolder).transform.GetChild(0).gameObject);
-            starChildScripts.Add(starChilds[i].GetComponent<StarCollectedScript>());
         }
     }
 
@@ -274,6 +273,7 @@ public class GameController : MonoBehaviour
         if (starChilds.Count - 1 >= 0 && !isTimeOver)
         {
             starChilds[starChilds.Count - 1].SetActive(true);
+            starChildScripts.Add(starChilds[starChilds.Count - 1].transform.parent.GetComponent<StarCollectedScript>());
             starChilds.RemoveAt(starChilds.Count - 1);
         }
     }
@@ -372,14 +372,39 @@ public class GameController : MonoBehaviour
         gameWinAnim.Play("GameWinAnims");
         fillBarAnims.Play("FillbarAnimDown");
         yield return new WaitForSeconds(1f);
-
+        StartCoroutine(MoveStarsScript(0.2f));
     }
 
     IEnumerator MoveStarsScript(float starTimeInterval) {
+
+        int prevStars = PlayerPrefs.GetInt("CurrentWinPanelStars", 0);
+        startHolder.GetComponent<HorizontalLayoutGroup>().enabled = false;
+
+        //Activate collected stars
+        for (int i = 0; i < prevStars; i++)
+        {
+            starsInWinPanel[i].transform.GetChild(0).gameObject.SetActive(true);
+        }
+        //remove collected stars from list
+        for (int i = 0; i < prevStars; i++)
+        {
+            starsInWinPanel.RemoveAt(0);
+        }
+
+        //Store new collected stars
         for (int i = 0; i < starChildScripts.Count; i++)
         {
-         //   starChildScripts[i].targetPos =
+            if (i >= starsInWinPanel.Count) {
+
+                break;
+            }
+
+            starChildScripts[(starChildScripts.Count - 1) - i].targetPos = starsInWinPanel[i];
+            starChildScripts[(starChildScripts.Count - 1) - i].isGoToTarget = true;
+            prevStars++;
+
             yield return new WaitForSeconds(starTimeInterval);
         }
+        PlayerPrefs.SetInt("CurrentWinPanelStars",prevStars);
     }
 }

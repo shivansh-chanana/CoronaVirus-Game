@@ -47,6 +47,10 @@ public class PlayerCollideScript : MonoBehaviour
             airCamera.SetActive(true);
             isAirCameraEnabled = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.A)) ExitGateCollision();
+        if (Input.GetKeyDown(KeyCode.S)) GameController.instance.GameRestartButton();
+        if (Input.GetKeyDown(KeyCode.D)) GameController.instance.StarCollected();
     }
 
     void ToggleEffects(bool isEnable) {
@@ -75,15 +79,15 @@ public class PlayerCollideScript : MonoBehaviour
         }
 
         if (other.CompareTag("ExitGate")) {
-            GameController.instance.joystick.gameObject.SetActive(false);
-            GameController.instance.StarCollected();
-            KinematicsToggle(true);
-            GameController.instance.isGameWin = true;
-            GameController.instance.GameWinFunction(2f);
+            ExitGateCollision();
             GameController.instance.CreateParticleEffect(4, 0, other.transform.position);
             GameController.instance.CreateParticleEffect(5, 0, other.transform.position);
             GameController.instance.CreateParticleEffect(6, 0, other.transform.position);
             GameController.instance.CreateParticleEffect(7, 0, other.transform.position);
+
+            //Stop fast moving particles
+            GameController.instance.HitWall();
+            ToggleEffects(false);
         }
     }
 
@@ -120,5 +124,14 @@ public class PlayerCollideScript : MonoBehaviour
         {
             rigidbodies[i].isKinematic = isKinematic;
         }
+    }
+
+    public void ExitGateCollision() {
+        GameController.instance.joystick.gameObject.SetActive(false);
+        GameController.instance.ToggleEnemyKinematic(true);
+        GameController.instance.StarCollected();
+        KinematicsToggle(true);
+        GameController.instance.isGameWin = true;
+        GameController.instance.GameWinFunction(2f);
     }
 }

@@ -160,3 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e2d4cdbb7274621ae96ce153c8bd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRect: {fileID: 4753353561606285561}
+  myRectChild: {fileID: 4753353561162069070}
+  targetPos: {fileID: 0}
+  isGoToTarget: 0
