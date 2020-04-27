@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public Camera mainCam;
-    public Transform mainCamStartVal , mainCamGameVal;
+    public Transform mainCamStartVal, mainCamGameVal;
     public Transform playerTransform;
     public GameObject playerGameStart;
     public FloatingJoystick joystick;
@@ -37,18 +37,28 @@ public class GameController : MonoBehaviour
 
     [Header("VFX")]
     public GameObject collectableVfx;
-    public GameObject enemyHitTextVfx , enemyHitVirusVfx;
+    public GameObject enemyHitTextVfx, enemyHitVirusVfx;
     public GameObject collideWithWallVfx;
-    public GameObject starCollectVfx , fireworkTrials , flying_ember , environment_Bubble;
+    public GameObject starCollectVfx, fireworkTrials, flying_ember, environment_Bubble;
 
     [Header("UI")]
     public float totalFillbarTime;
     public Image fillbarImg;
     public GameObject starPrefab;
-    public Transform startHolder , starWinPanelHolder;
-    public Animator gotInfectedAnims , fillBarAnims , findExitAnim , gameWinAnim;
+    public Transform startHolder;
+    public Animator gotInfectedAnims, fillBarAnims, findExitAnim, gameWinAnim;
     public GameObject GameWinPanel;
     public List<RectTransform> starsInWinPanel = new List<RectTransform>();
+    public GameObject costumeSelectPrefab;
+    public Transform costumeSelectButtonHolder;
+    public Sprite[] costumeButtonStateSprites;
+
+    [Header("MysterChar")]
+    public GameObject mysteryCharImg;
+    public List<Sprite> allMysteryCharImg;
+    public Material bodyMat;
+    public List<Sprite> allMysteryCharSkins;
+    public GameObject SetCostumeButton;
 
     [Header("Serialize Field")]
     [Space(10)]
@@ -72,6 +82,14 @@ public class GameController : MonoBehaviour
     GameObject exitGate;
 
     public static GameController instance;
+
+    /* playerprefs
+        CurrentWinPanelStars
+        currentPlayerToUnlock
+        currentPlayerSelected
+
+        PlayerPrefsX.GetBool("GameFinished")
+    */
 
     private void Awake()
     {
@@ -97,8 +115,8 @@ public class GameController : MonoBehaviour
         totalTimeTemp = totalFillbarTime;
 
         GameWinPanel.SetActive(false);
-
         StarFiller();
+        FillCostumeSelectionScreen();
     }
 
     void Update()
@@ -144,7 +162,7 @@ public class GameController : MonoBehaviour
             {
                 transitionDelayTemp += Time.deltaTime;
                 moveSpeed = moveSpeedTemp * transitionDelayTemp / transitionDelay;
-                playerObj.speed = Mathf.Clamp(playerObj.speed,0.5f, transitionDelayTemp / transitionDelay * 2f);
+                playerObj.speed = Mathf.Clamp(playerObj.speed, 0.5f, transitionDelayTemp / transitionDelay * 2f);
             }
 
             Vector3 lookDir = (Vector3.forward * joystick.Vertical + Vector3.right * joystick.Horizontal) * 100;
@@ -153,7 +171,7 @@ public class GameController : MonoBehaviour
             playerRb.velocity = playerTransform.forward * moveSpeed;
         }
         else if (!isPlayerStopped) {
-            playerObj.SetBool("Stop" , true);
+            playerObj.SetBool("Stop", true);
             isPlayerStopped = true;
 
             moveSpeed = 0f;
@@ -178,7 +196,7 @@ public class GameController : MonoBehaviour
         playerRb = playerTransform.GetComponent<Rigidbody>();
         mainCamAnim.enabled = true;
         mainCamAnim.Play("CameraUp");
-        Invoke("DisableCameraAnimNow" , 1f);
+        Invoke("DisableCameraAnimNow", 1f);
 
         moveSpeed = 0f;
         transitionDelayTemp = 0f;
@@ -207,12 +225,12 @@ public class GameController : MonoBehaviour
     }
 
     public void DressMeUp(Material material) {
-        material.mainTexture = enemyClothes[Random.Range(0 , enemyClothes.Length)];
+        material.mainTexture = enemyClothes[Random.Range(0, enemyClothes.Length)];
     }
 
     public void ToggleEnemiesOnOrOff(bool isEnable) {
 
-        totalEnemiesInLevel = Mathf.Clamp(totalEnemiesInLevel , 0 , totalEnemies.Count);
+        totalEnemiesInLevel = Mathf.Clamp(totalEnemiesInLevel, 0, totalEnemies.Count);
 
         for (int i = 0; i < totalEnemiesInLevel; i++)
         {
@@ -257,7 +275,7 @@ public class GameController : MonoBehaviour
 
         exitGate = Instantiate(exitGatePrefab);
         Vector3 exitGateChosen = exitGateOptions[Random.Range(0, exitGateOptions.Length)].position;
-        exitGateChosen.y = 1.1f;
+        exitGateChosen.y = 2.5f;
         exitGate.transform.position = exitGateChosen;
         exitGate.SetActive(false);
     }
@@ -295,7 +313,7 @@ public class GameController : MonoBehaviour
         {
             randomDirection = new Vector3(SpawnableArea.position.x + Random.Range(SpawnableArea.localScale.x / 2 * -1, SpawnableArea.localScale.x / 2 * 1),
             1f, SpawnableArea.position.z + Random.Range(SpawnableArea.localScale.z / 2 * -1, SpawnableArea.localScale.z / 2 * 1));
-        } while (Vector3.Distance(randomDirection , playerTransform.position) < 7f && !hasGameStarted);
+        } while (Vector3.Distance(randomDirection, playerTransform.position) < 7f && !hasGameStarted);
 
         NavMeshHit hit;
         NavMesh.SamplePosition(randomDirection, out hit, SpawnableArea.transform.localScale.x, 1);
@@ -311,7 +329,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void CreateParticleEffect(int effectType , float timer ,Vector3 pos) {
+    public void CreateParticleEffect(int effectType, float timer, Vector3 pos) {
 
         GameObject particleEffect;
 
@@ -348,7 +366,7 @@ public class GameController : MonoBehaviour
                 break;
         }
 
-        StartCoroutine(CreateParticleEffectDelayer(particleEffect , timer , pos));
+        StartCoroutine(CreateParticleEffectDelayer(particleEffect, timer, pos));
     }
 
     public void GameWinFunction(float delayTime) {
@@ -356,7 +374,7 @@ public class GameController : MonoBehaviour
         findExitAnim.gameObject.SetActive(false);
     }
 
-    IEnumerator CreateParticleEffectDelayer(GameObject effect , float timer , Vector3 pos) {
+    IEnumerator CreateParticleEffectDelayer(GameObject effect, float timer, Vector3 pos) {
 
         yield return new WaitForSeconds(timer);
 
@@ -394,17 +412,99 @@ public class GameController : MonoBehaviour
         //Store new collected stars
         for (int i = 0; i < starChildScripts.Count; i++)
         {
-            if (i >= starsInWinPanel.Count) {
+            starChildScripts[(starChildScripts.Count - 1) - i].targetPos = starsInWinPanel[i];
+            starChildScripts[(starChildScripts.Count - 1) - i].isGoToTarget = true;
 
+            if (i + 1 >= starsInWinPanel.Count)
+            {
+                StartCoroutine(UnlockMysteryChar(2f));
+                prevStars = (starChildScripts.Count - (i + 1));
+                PlayerPrefs.SetInt("CurrentWinPanelStars", prevStars);
                 break;
             }
 
-            starChildScripts[(starChildScripts.Count - 1) - i].targetPos = starsInWinPanel[i];
-            starChildScripts[(starChildScripts.Count - 1) - i].isGoToTarget = true;
             prevStars++;
 
             yield return new WaitForSeconds(starTimeInterval);
         }
-        PlayerPrefs.SetInt("CurrentWinPanelStars",prevStars);
+        PlayerPrefs.SetInt("CurrentWinPanelStars", prevStars);
     }
+
+    IEnumerator UnlockMysteryChar(float delayTimer) {
+
+        yield return new WaitForSeconds(delayTimer);
+
+        int currentPlayerToUnlock = PlayerPrefs.GetInt("currentPlayerToUnlock", 0);
+        mysteryCharImg.GetComponent<Image>().sprite = allMysteryCharImg[currentPlayerToUnlock];
+        mysteryCharImg.SetActive(true);
+        starsInWinPanel[0].parent.gameObject.SetActive(false);
+        startHolder.gameObject.SetActive(false);
+        SetCostumeButton.SetActive(true);
+
+        int nextPlayerToUnlock = currentPlayerToUnlock + 1;
+        if (nextPlayerToUnlock >= allMysteryCharImg.Count)
+        {
+            nextPlayerToUnlock = 0;
+            PlayerPrefsX.SetBool("GameFinished" , true);
+        }
+
+        PlayerPrefs.SetInt("currentPlayerToUnlock", nextPlayerToUnlock);
+    }
+
+    public void CostumeSetButton() {
+
+        int currentSelectedPlayer = PlayerPrefs.GetInt("currentPlayerToUnlock", 0) - 1;
+        if (currentSelectedPlayer < 0) currentSelectedPlayer = 0;
+
+        bodyMat.mainTexture = allMysteryCharSkins[currentSelectedPlayer].texture;
+
+        PlayerPrefs.SetInt("currentPlayerSelected" , currentSelectedPlayer);
+
+        GameRestartButton();
+    }
+
+    public void CostumeSetButtonFromCostumeScreen(int objName) {
+
+        int prevSel = PlayerPrefs.GetInt("currentPlayerSelected", 0);
+        costumeSelectButtonHolder.GetChild(prevSel).GetComponent<Image>().sprite = costumeButtonStateSprites[0];
+
+        int childNum = objName;
+        PlayerPrefs.SetInt("currentPlayerSelected", childNum);
+        costumeSelectButtonHolder.GetChild(childNum).GetComponent<Image>().sprite = costumeButtonStateSprites[1];
+
+        bodyMat.mainTexture = allMysteryCharSkins[childNum].texture;
+    }
+
+    void FillCostumeSelectionScreen() {
+
+        for (int i = 0; i < costumeSelectButtonHolder.childCount; i++)
+        {
+            Destroy(costumeSelectButtonHolder.GetChild(i).gameObject);
+        }
+
+        int currentUnlockedCostumes = PlayerPrefs.GetInt("currentPlayerToUnlock", 0);
+        if(PlayerPrefsX.GetBool("GameFinished", false)) currentUnlockedCostumes = allMysteryCharImg.Count;
+
+        int currentSelectedPlayer = PlayerPrefs.GetInt("currentPlayerSelected", 0);
+
+        for (int i = 0; i < allMysteryCharImg.Count; i++)
+        {
+            GameObject costumeButton = Instantiate(costumeSelectPrefab , costumeSelectButtonHolder);
+
+            if (i < currentUnlockedCostumes) {
+                costumeButton.transform.GetChild(0).GetComponent<Image>().sprite = allMysteryCharImg[i];
+                costumeButton.GetComponent<Button>().interactable = true;
+                costumeButton.name = i.ToString();
+                Debug.Log("button unlocked : " + i);
+            }
+        }
+
+        int childNum = PlayerPrefs.GetInt("currentPlayerSelected", 0);
+        costumeSelectButtonHolder.GetChild(childNum).GetComponent<Image>().sprite = costumeButtonStateSprites[1];
+    }
+
+    public void SetPlayerMaterialTex(int sprNum) {
+        bodyMat.mainTexture = allMysteryCharSkins[sprNum].texture;
+    }
+
 }

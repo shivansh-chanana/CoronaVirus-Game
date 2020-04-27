@@ -99,8 +99,11 @@ MonoBehaviour:
   - {fileID: 1145474622126092611}
   - {fileID: 1228998290510112239}
   smoke: {fileID: 1228998292227296088}
-  airCamera: {fileID: 0}
   rigidbodies: []
+  airCamera: {fileID: 0}
+  areTrailsEnabled: 0
+  isSmokeEnabled: 0
+  isAirCameraEnabled: 0
 --- !u!1 &798047043625855198
 GameObject:
   m_ObjectHideFlags: 0

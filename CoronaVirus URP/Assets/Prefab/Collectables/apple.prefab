@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: -2048489614411457846}
   - component: {fileID: -4649051578428678021}
   - component: {fileID: -4565684992178341075}
-  - component: {fileID: 8377273282911337966}
   m_Layer: 0
   m_Name: apple
   m_TagString: Collectable
@@ -168,24 +167,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8377273282911337966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8014111068727474601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075057ad5708c4c49a417c31ae2c9a63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_icon: {fileID: 0}
-  m_targetIconOnScreen: {fileID: 21300000, guid: dde25e14d75c745e5a0f76bae8c4a6fa,
-    type: 3}
-  m_targetIconOffScreen: {fileID: 21300000, guid: dde25e14d75c745e5a0f76bae8c4a6fa,
-    type: 3}
-  m_edgeBuffer: 50
-  m_targetIconScale: {x: 1.5, y: 1.5, z: 1.5}
-  PointTarget: 0
-  ShowDebugLines: 0
