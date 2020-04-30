@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
+using GameAnalyticsSDK;
 
 [System.Serializable]
 public enum TutorialPhase{
@@ -151,6 +153,18 @@ public class TutorialManager : MonoBehaviour
 
         //get camera and playerOffsetNow
         camOffset = mainCam.transform.position - playerTransform.position;
+
+        //Send tutorial start //analytics
+        #region Game Analytics
+        GameAnalytics.NewDesignEvent("Tutorial Started" , Time.realtimeSinceStartup);
+        #endregion
+
+        #region Unity Analytics
+        AnalyticsEvent.Custom("Tutorial Started", new Dictionary<string, object>
+        {
+            { "StartTime", Time.realtimeSinceStartup },
+        });
+        #endregion
     }
 
     public void CreateParticleEffect(int effectType, float timer, Vector3 pos)
@@ -238,6 +252,8 @@ public class TutorialManager : MonoBehaviour
         isTutorialWin = true;
         joystick.gameObject.SetActive(false);
         playButton.SetActive(true);
+
+        PlayerPrefsX.SetBool("isTutorialComplete", true);
     }
 
     public void MoveToMainGame() {

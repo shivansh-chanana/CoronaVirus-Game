@@ -2172,7 +2172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -173}
+  m_AnchoredPosition: {x: 0, y: -173.00098}
   m_SizeDelta: {x: 284.5, y: 291.40002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &241985682
@@ -13959,7 +13959,7 @@ MonoBehaviour:
   mainCamAnim: {fileID: 963194230}
   moveSpeed: 9
   transitionDelay: 3
-  totalEnemiesInLevel: 1
+  totalEnemiesInLevel: 6
   totalEnemies: []
   availableEnemyList: []
   totalEnemiesChasing: 0
@@ -13968,7 +13968,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 14d481e8d0c664b44ad8ac3414abbedd, type: 3}
   - {fileID: 2800000, guid: ab58e820e9e0b46af8ae980c75e5e529, type: 3}
   - {fileID: 2800000, guid: 145b38206ac854fb883579fdfca7a789, type: 3}
-  spawnItemsToCreate: 2
+  spawnItemsToCreate: 3
   SpawnableArea: {fileID: 1128550880}
   collectableObj:
   - {fileID: 655851833861835680, guid: 68c32c5ca8cbd4f299458c9110f64bc1, type: 3}
@@ -14045,7 +14045,7 @@ MonoBehaviour:
     type: 3}
   flying_ember: {fileID: 100000, guid: f89732ea99785b94c87bbba1e27f75a3, type: 3}
   environment_Bubble: {fileID: 100000, guid: 37bd362d795dc334d8676f4781d66578, type: 3}
-  totalFillbarTime: 5
+  totalFillbarTime: 20
   fillbarImg: {fileID: 1284810584}
   starPrefab: {fileID: 4753353561606285562, guid: 3c435420baef741ae822083ddd1bc09a,
     type: 3}

@@ -1,4 +1,0 @@
-#Mon Apr 27 15:41:22 IST 2020
-base.0=/Users/younique/Documents/GitHub/CoronaVirus-Game/CoronaVirus URP/Temp/gradleOut/launcher/build/intermediates/transforms/dexMerger/release/0
-path.0=classes.dex
-renamed.0=classes.dex
