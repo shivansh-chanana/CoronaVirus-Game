@@ -154,17 +154,8 @@ public class TutorialManager : MonoBehaviour
         //get camera and playerOffsetNow
         camOffset = mainCam.transform.position - playerTransform.position;
 
-        //Send tutorial start //analytics
-        #region Game Analytics
-        GameAnalytics.NewDesignEvent("Tutorial Started" , Time.realtimeSinceStartup);
-        #endregion
-
-        #region Unity Analytics
-        AnalyticsEvent.Custom("Tutorial Started", new Dictionary<string, object>
-        {
-            { "StartTime", Time.realtimeSinceStartup },
-        });
-        #endregion
+        //Analytics call
+        AnalyticsCall("Tutorial Started");
     }
 
     public void CreateParticleEffect(int effectType, float timer, Vector3 pos)
@@ -254,9 +245,28 @@ public class TutorialManager : MonoBehaviour
         playButton.SetActive(true);
 
         PlayerPrefsX.SetBool("isTutorialComplete", true);
+
+        //Analytics Call
+        AnalyticsCall("Tutorial Ended");
     }
 
     public void MoveToMainGame() {
         SceneManager.LoadScene("Level_1");
+    }
+
+    public void AnalyticsCall(string eventName) {
+
+        //Send tutorial start //analytics
+        #region Game Analytics
+        GameAnalytics.NewDesignEvent(eventName, Time.timeSinceLevelLoad);
+        #endregion
+
+        #region Unity Analytics
+        AnalyticsEvent.Custom(eventName, new Dictionary<string, object>
+        {
+            { "StartTime", Time.timeSinceLevelLoad},
+        });
+        #endregion
+
     }
 }

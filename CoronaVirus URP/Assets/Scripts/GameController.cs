@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
+using UnityEngine.Analytics;
 
 public class GameController : MonoBehaviour
 {
@@ -204,6 +206,8 @@ public class GameController : MonoBehaviour
         //FillEnemyChaseList();
         ToggleEnemiesOnOrOff(true);
         FillCollectables();
+
+        AnalyticsCall("Game Started");
     }
 
     public void CollectableCollected() {
@@ -297,11 +301,13 @@ public class GameController : MonoBehaviour
     }
 
     public void GameOverAnimations() {
+        AnalyticsCall("Game Lose");
         fillBarAnims.Play("FillbarAnimUp");
         gotInfectedAnims.Play("GotInfectedAnim");
     }
 
     public void GameRestartButton() {
+        AnalyticsCall("GameRestarted");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -372,6 +378,8 @@ public class GameController : MonoBehaviour
     public void GameWinFunction(float delayTime) {
         StartCoroutine(GameWinDelay(delayTime));
         findExitAnim.gameObject.SetActive(false);
+
+        AnalyticsCall("Game Won");
     }
 
     IEnumerator CreateParticleEffectDelayer(GameObject effect, float timer, Vector3 pos) {
@@ -446,9 +454,14 @@ public class GameController : MonoBehaviour
         {
             nextPlayerToUnlock = 0;
             PlayerPrefsX.SetBool("GameFinished" , true);
+
+            AnalyticsCall("Game Finished");
         }
 
         PlayerPrefs.SetInt("currentPlayerToUnlock", nextPlayerToUnlock);
+
+        if (PlayerPrefsX.GetBool("GameFinished")) AnalyticsCallForInt("Game Finished , Player Unlocked ", currentPlayerToUnlock);
+        else AnalyticsCallForInt("Player Unlocked " , currentPlayerToUnlock);
     }
 
     public void CostumeSetButton() {
@@ -473,6 +486,8 @@ public class GameController : MonoBehaviour
         costumeSelectButtonHolder.GetChild(childNum).GetComponent<Image>().sprite = costumeButtonStateSprites[1];
 
         bodyMat.mainTexture = allMysteryCharSkins[childNum].texture;
+
+        AnalyticsCallForInt("Costume Set ", childNum);
     }
 
     void FillCostumeSelectionScreen() {
@@ -507,4 +522,34 @@ public class GameController : MonoBehaviour
         bodyMat.mainTexture = allMysteryCharSkins[sprNum].texture;
     }
 
+    public void AnalyticsCall(string eventName)
+    {
+
+        //Send tutorial start //analytics
+        #region Game Analytics
+        GameAnalytics.NewDesignEvent(eventName, Time.timeSinceLevelLoad);
+        #endregion
+
+        #region Unity Analytics
+        AnalyticsEvent.Custom(eventName, new Dictionary<string, object>
+        {
+            { "StartTime", Time.timeSinceLevelLoad},
+        });
+        #endregion
+
+    }
+
+    public void AnalyticsCallForInt(string eventName , int value) {
+        //Send tutorial start //analytics
+        #region Game Analytics
+        GameAnalytics.NewDesignEvent(eventName, value);
+        #endregion
+
+        #region Unity Analytics
+        AnalyticsEvent.Custom(eventName, new Dictionary<string, object>
+        {
+            { "Value", value},
+        });
+        #endregion
+    }
 }

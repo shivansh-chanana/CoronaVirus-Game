@@ -10,6 +10,9 @@ public class EnableNextItem : MonoBehaviour
 
     public bool enableNextTask;
 
+    public bool analyticCall;
+    public string analyticEventName;
+
     private void Start()
     {
         ToggleNextItem(false); ;
@@ -28,6 +31,10 @@ public class EnableNextItem : MonoBehaviour
                 {
                     disableTheseToo[i].SetActive(false);
                 }
+            }
+
+            if (analyticCall) {
+                TutorialManager.instance.AnalyticsCall(analyticEventName);
             }
 
             ToggleNextItem(true);

@@ -2967,6 +2967,8 @@ MonoBehaviour:
   - {fileID: 1015600954}
   disableTheseToo: []
   enableNextTask: 0
+  analyticCall: 0
+  analyticEventName: 
 --- !u!4 &448116642034752077
 Transform:
   m_ObjectHideFlags: 0
@@ -13848,6 +13850,8 @@ MonoBehaviour:
   disableTheseToo:
   - {fileID: 1154877845}
   enableNextTask: 1
+  analyticCall: 1
+  analyticEventName: Tut_Phase_1_Complete
 --- !u!114 &2309266268939584873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14055,6 +14059,8 @@ MonoBehaviour:
   - {fileID: 2309266268939486150}
   disableTheseToo: []
   enableNextTask: 0
+  analyticCall: 0
+  analyticEventName: 
 --- !u!23 &3107314423491409901
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14504,6 +14510,8 @@ MonoBehaviour:
   disableTheseToo:
   - {fileID: 161663160}
   enableNextTask: 1
+  analyticCall: 1
+  analyticEventName: Tut_Phase_2_Complete
 --- !u!114 &5085194646516737784
 MonoBehaviour:
   m_ObjectHideFlags: 0
