@@ -5,14 +5,15 @@ using UnityEngine.AI;
 
 public class EnemyScript : MonoBehaviour
 {
-    public bool isRandomJumpDistance , isRandomSpeed;
+    public bool isRandomJumpDistance, isRandomSpeed;
     public float moveSpeed;
-    public float chaseDistance , jumpDistance , offscreenDistance;
-    public Vector2 randomJumpDistanceValues , randomMoveSpeed;
+    public float chaseDistance, jumpDistance, offscreenDistance;
+    public Vector2 randomJumpDistanceValues, randomMoveSpeed;
     public float resetTimer;
     public Animator objAnim;
-    public SkinnedMeshRenderer skinnedMeshRenderer , headSMR;
+    public SkinnedMeshRenderer skinnedMeshRenderer, headSMR;
     public Outline[] outlinesScript;
+    public ParticleSystem bubbleSpeech;
 
     Transform target;
     Vector3 targetPos;
@@ -21,7 +22,7 @@ public class EnemyScript : MonoBehaviour
 
     [Header("SerializeField")]
     [SerializeField] bool hasGameStarted;
-    [SerializeField] bool isGameOver , isEnemyKinematic;
+    [SerializeField] bool isGameOver, isEnemyKinematic;
     [SerializeField] float startPosY;
     [SerializeField] bool isPlayerSpoted;
     [SerializeField] float distanceFromTarget;
@@ -63,7 +64,8 @@ public class EnemyScript : MonoBehaviour
 
     private void Update()
     {
-        if (isEnemyKinematic) {
+        if (isEnemyKinematic)
+        {
             return;
         }
 
@@ -84,6 +86,13 @@ public class EnemyScript : MonoBehaviour
             if (!isPlayerSpoted)
             {
                 isPlayerSpoted = true;
+
+                //Play Spotted Sound
+                SoundManager.instance.PlayPlayerFoundByEnemy(transform);
+
+                //Play BubbleSpeech
+                bubbleSpeech.Play();
+                GameController.instance.PlayPlayerBubble();
             }
         }
         else
@@ -91,11 +100,16 @@ public class EnemyScript : MonoBehaviour
             //stop chasing
             if (isPlayerSpoted)
             {
-             //   objAnim.SetBool("PlayerFound", false);
+                //   objAnim.SetBool("PlayerFound", false);
                 isPlayerSpoted = false;
-             //   rb.velocity = Vector3.zero;
+                //   rb.velocity = Vector3.zero;
+
+                //Play BubbleSpeech
+                bubbleSpeech.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                GameController.instance.StopPlayerBubble();
             }
-            do {
+            do
+            {
                 RandomPosition();
                 distanceFromTarget = Vector3.Distance(targetPos, transform.position);
             } while (distanceFromTarget > 7f);
@@ -104,16 +118,19 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    void RandomValues() {
-        if (isRandomJumpDistance) jumpDistance = Random.RandomRange(randomJumpDistanceValues.x, randomJumpDistanceValues.y);
-        if (isRandomSpeed) moveSpeed = Random.RandomRange(randomMoveSpeed.x, randomMoveSpeed.y);
+    void RandomValues()
+    {
+        if (isRandomJumpDistance) jumpDistance = Random.Range(randomJumpDistanceValues.x, randomJumpDistanceValues.y);
+        if (isRandomSpeed) moveSpeed = Random.Range(randomMoveSpeed.x, randomMoveSpeed.y);
     }
 
-    void RandomPosition() {
+    void RandomPosition()
+    {
         targetPos = GameController.instance.RandomPosition();
     }
 
-    public void KinematicsToggle(bool isKinematic) {
+    public void KinematicsToggle(bool isKinematic)
+    {
         for (int i = 0; i < rigidbodies.Length; i++)
         {
             rigidbodies[i].isKinematic = isKinematic;
@@ -130,5 +147,14 @@ public class EnemyScript : MonoBehaviour
         }
 
         objAnim.SetBool("PlayerFound", true);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Shield"))
+        {
+            rb.AddForce(transform.forward * -100f, ForceMode.VelocityChange);
+            Debug.Log("shield spotted", collision.gameObject);
+        }
     }
 }

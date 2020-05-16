@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - Obstacle
   - ExitGate
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - 
   - PlayerRagdoll
   - EnemyRagdoll
-  - 
-  - 
+  - Shield
+  - PostProcesing
   - 
   - 
   - 

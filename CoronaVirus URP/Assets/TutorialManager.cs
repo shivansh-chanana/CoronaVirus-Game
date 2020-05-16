@@ -22,6 +22,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject findExitGate;
     public Transform exitGate;
     public GameObject playButton;
+    public GameObject skipButton;
 
     [Header("Enemies")]
     public List<Tutorial_EnemyScript> TotalEnemies = new List<Tutorial_EnemyScript>();
@@ -44,6 +45,7 @@ public class TutorialManager : MonoBehaviour
 
     [Header("Serialize Field")]
     public bool isTutorialWin;
+    bool skipButtonPressed;
     [SerializeField] TutorialPhase currentPhase;
     [SerializeField] bool isPlayerStopped;
     [SerializeField] float moveSpeedTemp;
@@ -67,6 +69,8 @@ public class TutorialManager : MonoBehaviour
         playButton.SetActive(false);
 
         StartGameNow();
+
+        CheckForSkipButton();
     }
 
     // Update is called once per frame
@@ -76,7 +80,7 @@ public class TutorialManager : MonoBehaviour
         {
             mainCam.transform.RotateAround(playerTransform.position, Vector3.up, 0.4f);
 
-            playerTransform.position = new Vector3(exitGate.position.x , playerTransform.position.y , exitGate.position.z);
+           if(!skipButton) playerTransform.position = new Vector3(exitGate.position.x , playerTransform.position.y , exitGate.position.z);
 
             return;
         }
@@ -128,6 +132,12 @@ public class TutorialManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void CheckForSkipButton() {
+        if (PlayerPrefsX.GetBool("isTutorialComplete", false)) {
+            skipButton.SetActive(true);
+        }
     }
 
     public void HitWall()
@@ -248,6 +258,26 @@ public class TutorialManager : MonoBehaviour
 
         //Analytics Call
         AnalyticsCall("Tutorial Ended");
+    }
+
+    public void SkippingTutorial() {
+        CreateParticleEffect(5, 0f, playerTransform.position);
+
+        if (TotalEnemies[0].transform.root.gameObject.activeSelf)
+        {
+            for (int i = 0; i < TotalEnemies.Count; i++)
+            {
+                TotalEnemies[i].StopEnemies();
+            }
+        }
+
+        isTutorialWin = true;
+        skipButtonPressed = true;
+        joystick.gameObject.SetActive(false);
+        playButton.SetActive(true);
+
+        //Analytics Call
+        AnalyticsCall("SkippingTutorial");
     }
 
     public void MoveToMainGame() {

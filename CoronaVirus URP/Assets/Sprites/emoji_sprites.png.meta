@@ -1,0 +1,860 @@
+fileFormatVersion: 2
+guid: 027fd7e64bdb6456392860f5a2e01fd0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 868171713873868286
+    second: emoji_sprites_0
+  - first:
+      213: 1042771593162437705
+    second: emoji_sprites_1
+  - first:
+      213: 7930764210053230998
+    second: emoji_sprites_2
+  - first:
+      213: 5098198348840638547
+    second: emoji_sprites_3
+  - first:
+      213: -7549170295806780285
+    second: emoji_sprites_4
+  - first:
+      213: -5879176096206061413
+    second: emoji_sprites_5
+  - first:
+      213: -378857639234777386
+    second: emoji_sprites_6
+  - first:
+      213: -41363630225634059
+    second: emoji_sprites_7
+  - first:
+      213: 2702313855438597620
+    second: emoji_sprites_8
+  - first:
+      213: -579059029443373570
+    second: emoji_sprites_9
+  - first:
+      213: 4205607511572416351
+    second: emoji_sprites_10
+  - first:
+      213: -3007125612085317005
+    second: emoji_sprites_11
+  - first:
+      213: 2450695501615888818
+    second: emoji_sprites_12
+  - first:
+      213: 279865164352593947
+    second: emoji_sprites_13
+  - first:
+      213: 6533197904763581326
+    second: emoji_sprites_14
+  - first:
+      213: -319171303990940384
+    second: emoji_sprites_15
+  - first:
+      213: -4363596482553948686
+    second: emoji_sprites_16
+  - first:
+      213: -3385574276232395597
+    second: emoji_sprites_17
+  - first:
+      213: -8484636917618808082
+    second: emoji_sprites_18
+  - first:
+      213: 6472174485612730940
+    second: emoji_sprites_19
+  - first:
+      213: 1598410530483535695
+    second: emoji_sprites_20
+  - first:
+      213: -2905369784672577529
+    second: emoji_sprites_21
+  - first:
+      213: 472489939130962869
+    second: emoji_sprites_22
+  - first:
+      213: -431991751384161103
+    second: emoji_sprites_23
+  - first:
+      213: 4889119350791972601
+    second: emoji_sprites_24
+  - first:
+      213: -7951803336616001202
+    second: emoji_sprites_25
+  - first:
+      213: -2143512917149385135
+    second: emoji_sprites_26
+  - first:
+      213: 4687525279830756850
+    second: emoji_sprites_27
+  - first:
+      213: 1653779055337850862
+    second: emoji_sprites_28
+  - first:
+      213: 1896600925836600727
+    second: emoji_sprites_29
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: 2
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: emoji_sprites_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 528
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef57e71f29d5c0c00800000000000000
+      internalID: 868171713873868286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 528
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944b0583d3ba87e00800000000000000
+      internalID: 1042771593162437705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_2
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 528
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 691ba91b70cbf0e60800000000000000
+      internalID: 7930764210053230998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_3
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 528
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3581129036070c640800000000000000
+      internalID: 5098198348840638547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_4
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 528
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c9189fc95fb3790800000000000000
+      internalID: -7549170295806780285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_5
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 528
+        width: 75
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b908bad5d78f86ea0800000000000000
+      internalID: -5879176096206061413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_6
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 407
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dec7f00cf60ebaf0800000000000000
+      internalID: -378857639234777386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 405
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fcc7c95ffb0d6ff0800000000000000
+      internalID: -41363630225634059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_8
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 402
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fda801522c808520800000000000000
+      internalID: 2702313855438597620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_9
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 402
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef59b0671e4c6f7f0800000000000000
+      internalID: -579059029443373570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_10
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 401
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f570dffdfb15d5a30800000000000000
+      internalID: 4205607511572416351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_11
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 404
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 372fca0303b8446d0800000000000000
+      internalID: -3007125612085317005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_12
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 281
+        width: 69
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b9767a039e920220800000000000000
+      internalID: 2450695501615888818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_13
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 280
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b102e3a52e742e300800000000000000
+      internalID: 279865164352593947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_14
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 278
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8372c841e49aaa50800000000000000
+      internalID: 6533197904763581326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_15
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 278
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02d2f1bd363129bf0800000000000000
+      internalID: -319171303990940384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_16
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 277
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f55a325e146173c0800000000000000
+      internalID: -4363596482553948686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_17
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 281
+        width: 66
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b4c77022260401d0800000000000000
+      internalID: -3385574276232395597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_18
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 157
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eea6a2d4da3804a80800000000000000
+      internalID: -8484636917618808082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 157
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a1b435768c1d950800000000000000
+      internalID: 6472174485612730940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_20
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 156
+        width: 67
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4ff6b2a8e1be2610800000000000000
+      internalID: 1598410530483535695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_21
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 156
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 708107bf29d0ea7d0800000000000000
+      internalID: -2905369784672577529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_22
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 157
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b3d8d5a81f9e8600800000000000000
+      internalID: 472489939130962869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_23
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 157
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b429d87ac1410af0800000000000000
+      internalID: -431991751384161103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_24
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 28
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f6a1785524a9d340800000000000000
+      internalID: 4889119350791972601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 28
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41cc3deef485a190800000000000000
+      internalID: -7951803336616001202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_26
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 28
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15e79d1db56b042e0800000000000000
+      internalID: -2143512917149385135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_27
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 28
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fdc9fb086f6d0140800000000000000
+      internalID: 4687525279830756850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_28
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 28
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee7c46ae94763f610800000000000000
+      internalID: 1653779055337850862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emoji_sprites_29
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 28
+        width: 68
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 795ea215e74125a10800000000000000
+      internalID: 1896600925836600727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b1b00e7c9343e43319454c1b1461a63d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

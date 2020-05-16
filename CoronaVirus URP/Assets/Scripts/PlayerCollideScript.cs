@@ -14,10 +14,12 @@ public class PlayerCollideScript : MonoBehaviour
     [SerializeField] bool areTrailsEnabled, isSmokeEnabled, isAirCameraEnabled;
 
     bool isTouchedEnemy;
+    bool isTouchedExit;
 
     private void Start()
     {
         isTouchedEnemy = false;
+        isTouchedExit = false;
 
         rigidbodies = GetComponentsInChildren<Rigidbody>();
         airCamera = GameController.instance.mainCam.transform.GetChild(0).gameObject;
@@ -75,15 +77,18 @@ public class PlayerCollideScript : MonoBehaviour
             GameController.instance.StarCollected();
             GameController.instance.CollectableCollected();
             GameController.instance.CreateParticleEffect(0, 0  ,  other.transform.position);
-            GameController.instance.CreateParticleEffect(4, 0.5f, other.transform.position);
+            GameController.instance.CreateParticleEffect(4, 1f, other.transform.position);
+
         }
 
-        if (other.CompareTag("ExitGate")) {
+        if (other.CompareTag("ExitGate") && !isTouchedExit) {
             ExitGateCollision();
             GameController.instance.CreateParticleEffect(4, 0, other.transform.position);
             GameController.instance.CreateParticleEffect(5, 0, other.transform.position);
             GameController.instance.CreateParticleEffect(6, 0, other.transform.position);
             GameController.instance.CreateParticleEffect(7, 0, other.transform.position);
+
+            isTouchedExit = true;
 
             //Stop fast moving particles
             GameController.instance.HitWall();

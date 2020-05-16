@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using GameAnalyticsSDK;
+using GoogleMobileAds.Api;
 
 public class LogoControllerScript : MonoBehaviour
 {
@@ -14,7 +15,10 @@ public class LogoControllerScript : MonoBehaviour
     private void Awake()
     {
         //Initialize Game Analytics
-        GameAnalytics.Initialize(); 
+        GameAnalytics.Initialize();
+
+        // Initialize the Google Mobile Ads SDK.
+        MobileAds.Initialize(initStatus => { });
     }
 
     void Start()

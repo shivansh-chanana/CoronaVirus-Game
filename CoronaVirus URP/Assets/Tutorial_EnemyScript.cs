@@ -28,7 +28,6 @@ public class Tutorial_EnemyScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Player")) {
-            transform.position = startPos;
             TutorialManager.instance.playerTransform.position = TutorialManager.instance.posCheckPoint;
 
             TutorialManager.instance.AvoidPeopleHighlight(5f);
